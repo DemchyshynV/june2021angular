@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "../../services/user.service";
-import {User} from "../../models/User";
+import {IUser} from "../../interfaces/user.interface";
 
 @Component({
   selector: 'app-users',
@@ -10,7 +10,7 @@ import {User} from "../../models/User";
 })
 export class UsersComponent implements OnInit {
 
-  users: User[] = [];
+  users: IUser[] = [];
 
   constructor(private userService: UserService) {
   }

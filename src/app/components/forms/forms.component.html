@@ -1,0 +1,26 @@
+<form #tref (ngSubmit)="save(tref)">
+  <input type="text" name="username" [(ngModel)]="user.username">
+  <input type="password" name="password" [(ngModel)]="user.password">
+  <button>Save</button>
+</form>
+
+<hr>
+
+
+<form [formGroup]="myForm">
+  <div><input type="text" formControlName="name"></div>
+  <div><input type="number" formControlName="age"></div>
+  <span *ngIf="myForm.controls['name'].errors?.['minlength']">{{myForm.controls['name'].errors?.['minlength']|json}}</span>
+<!--  <button (click)="save2()" [disabled]="myForm.invalid">Save</button>-->
+  <button (click)="save2()" >Save</button>
+</form>
+
+<hr>
+
+<form [formGroup]="myForm2" (change)="showDetails()">
+  <select  formControlName="userId">
+    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+  </select>
+</form>
+
+<div *ngIf="userDetail">{{userDetail|json}}</div>
