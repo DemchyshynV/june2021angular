@@ -1,3 +1,5 @@
-<app-user *ngFor="let u of users" [user]="u"></app-user>
+<h1>{{age}}</h1>
+<h2>{{name}}</h2>
+<app-user *ngFor="let u of users" [user]="u" (userName)="getName($event)"></app-user>
 details
 <router-outlet></router-outlet>

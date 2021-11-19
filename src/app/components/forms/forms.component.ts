@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../services';
+import {DataTransferService, UserService} from '../../services';
 import {IUser} from '../../interfaces';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forms',
@@ -18,7 +19,7 @@ export class FormsComponent implements OnInit {
   users: IUser[];
   userDetail: IUser;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private transferService: DataTransferService, private router: Router) {
   }
 
   customValidator(control: AbstractControl): null | object {
@@ -51,5 +52,13 @@ export class FormsComponent implements OnInit {
   showDetails() {
     const id = this.myForm2.controls['userId'].value;
     this.userDetail = this.users[id - 1]
+  }
+
+  setAge(): void {
+    this.transferService.setAgeData(this.myForm.controls['age'].value)
+  }
+
+  roteTo() {
+    this.router.navigate([])
   }
 }
