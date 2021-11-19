@@ -1,0 +1,13 @@
+<div [appBoldAndColor]="color">{{user|json}}</div>
+<div appBoldAndColor="red">{{name|uppercase}}</div>
+<div>{{name|lowercase}}</div>
+<div>{{name|titlecase}}</div>
+<div>{{born|date:"yyyy-MM-dd HH:mm:ss"}}</div>
+<div>{{now|date:'full':"":"ru"}}</div>
+<div>{{arr|increment:5}}</div>
+<div>{{arr2}}</div>
+
+
+<!--directives-->
+<!--<app-users *ngFor="let user of user; let ind = index"></app-users>-->
+<!--<app-users *ngIf=""></app-users>-->
